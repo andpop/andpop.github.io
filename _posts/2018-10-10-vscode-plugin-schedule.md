@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "vscode 插件 markdown-schedule-snippet"
+title:  "Новый заголовок"
 categories: JavaScript
 tags: 效率 vscode markdown
 author: HyG
