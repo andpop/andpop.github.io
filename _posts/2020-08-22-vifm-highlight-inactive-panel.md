@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Новый заголовок"
+title:  "Отключение подсветки неактивной панели в vifm"
 categories: Vim Vifm
 tags: vifm
 author: andpop
