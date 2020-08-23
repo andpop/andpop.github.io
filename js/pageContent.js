@@ -59,8 +59,6 @@ function isMaxHeight() {
     var contentMaxHeight = windowHeight - 77 - 60
     var contentHeight = contentUl.offsetHeight
     return contentMaxHeight === contentHeight
-        // console.log(contentMaxHeight);
-        // console.log(contentHeight);
 }
 
 
@@ -100,9 +98,7 @@ function isMaxHeight() {
  */
 function ancherPostion(anchorBtn, rightDiv) {
     window.addEventListener('scroll', function() {
-        // console.log('scroll');
         var top = anchorBtn.getBoundingClientRect().top
-            // console.log(top);
         var scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop)
         if (scrollTop > 50) {
             anchorBtn.style.top = '20px'
@@ -130,28 +126,16 @@ function moveTOC() {
     if (document.querySelector('#markdown-toc') !== null) {
         var TOCString = document.querySelector('#markdown-toc').innerHTML
         var contentUl = document.querySelector('#content-side')
-        contentUl.insertAdjacentHTML('afterbegin', TOCString) //插入字符串
+        contentUl.insertAdjacentHTML('afterbegin', TOCString) 
 
-        // if (!isAndroidWechatBrowser()) {
+        var aTags = document.querySelectorAll('#content-side a')
 
-            //添加scroll样式，为了平滑滚动
-            //add class "scroll", for smooth scroll
-            var aTags = document.querySelectorAll('#content-side a')
-
-            //add class for everyone
-            // aTags.forEach(function () {
-            //     console.log(this);
-            // })
-            for (var i = 0; i < aTags.length; i++) {
-                // if (!aTags[i].classList.contains('scroll')) {
-                //     aTags[i].classList.add('scroll')
-                // }
-                if (!aTags[i].hasAttribute('data-scroll')) {
-                  aTags[i].setAttribute('data-scroll','');
-                }
-
+        for (var i = 0; i < aTags.length; i++) {
+            if (!aTags[i].hasAttribute('data-scroll')) {
+                aTags[i].setAttribute('data-scroll','');
             }
-        // }
+
+        }
 
     }
 }
