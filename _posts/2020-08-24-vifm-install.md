@@ -9,7 +9,7 @@ author: andpop
 * content
 {:toc}
 
-Самую свежую версию vifm можно установить из исходников на официальном сайте [ https://vifm.info/downloads.shtml ](https://vifm.info/downloads.shtml):
+Свежую версию vifm можно установить из исходников на официальном сайте [ https://vifm.info/downloads.shtml ](https://vifm.info/downloads.shtml):
 * Скачиваем с этой страницы tar.bz2-архив с исходниками.
 * Раскрываем архив, запускаем консоль в каталоге с исходниками.
 * Если в системе не установлена библиотека libncursesw5, устанавливаем ее: `sudo apt-get install libncursesw5-dev`
@@ -20,4 +20,19 @@ make
 sudo make install
 ```
 
-Запускается командой `vifm`.
+Также можно установить из репозитория GitHub. Скрипт для установки:
+```bash
+#!/bin/sh
+
+mkdir vifm_source
+cd vifm_source
+git clone https://github.com/vifm/vifm.git .
+sudo apt-get install -y libncursesw5-dev
+./configure
+make
+sudo make install
+cd ..
+rm -rf vifm_source
+```
+
+Запуск установленной утилиты - команда `vifm`.
