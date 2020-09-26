@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Настройка SSH для работы с GitHub"
+title:  "Настройка SSH для работы с одним или двумя профилями GitHub"
 categories: Операционки
 tags: SSH
 author: andpop
@@ -31,4 +31,28 @@ author: andpop
 * В поле *Key* скопировать содержимое созданного файла с открытым ключом (id_rsa.pub по умолчанию).
 
 После этого обращения к репозиторию по SSH должны проходить без запроса пароля.
+
+## Работа с двумя профилями GitHub
+Бывают ситуации, когда необходимо работать с двумя различными профилями на GitHub. Рассмотрим настройку SSH для доступа с одной машины к профилям andpop и andpop-mrsu.
+* Доступ к основному профилю andpop настраиваем по предыдущему пункту (открытый ключ в файле id_rsa.pub, закрытый ключ в файле id_rsa.pub).
+* Генерируем новую ключевую пару для профиля andpop-mrsu командой
+```
+ssh-keygen -t rsa -b 4096 -C “andrvpopov@gmail.com”
+```
+В качестве имени файла указываем ~/.ssh/andpop-mrsu.
+* Редактируем конфигурационный файл ~/.ssh/config (если такого файла нет, то создаем его):
+```
+# andpop Github
+Host github.com
+User andpop
+IdentityFile ~/.ssh/id_rsa
+
+# andpop-mrsu Github
+Host github.com
+User andpop-mrsu
+IdentityFile ~/.ssh/andpop-mrsu
+```
+* Добавляем содержимое открытого ключа ~/.ssh/andpop-mrsu.pub в список зарегистрированных SSH-ключей для профиля andpop-mrsu на GitHub.
+
+
 
