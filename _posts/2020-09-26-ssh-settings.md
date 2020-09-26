@@ -42,18 +42,22 @@ author: andpop
 ssh-keygen -t rsa -b 4096 -C “andrvpopov@gmail.com”
 ```
 В качестве имени файла указываем ~/.ssh/andpop-mrsu.
-* Редактируем конфигурационный файл ~/.ssh/config (если такого файла нет, то создаем его):
+* Редактируем конфигурационный файл ~/.ssh/config (если такого файла нет, то создаем его), добавляем две записи:
 
 ```
 # andpop Github
 Host github.com
-User andpop
-IdentityFile ~/.ssh/id_rsa
+ HostName github.com
+ User git
+ AddKeysToAgent yes
+ IdentityFile ~/.ssh/id_rsa
 
 # andpop-mrsu Github
-Host github.com
-User andpop-mrsu
-IdentityFile ~/.ssh/andpop-mrsu
+Host github.com-mrsu
+ HostName github.com
+ User git
+ AddKeysToAgent yes
+ IdentityFile ~/.ssh/andpop-mrsu
 ```
 ### Регистрация открытого ключа в дополнительном профиле на GitHub
 * Добавляем содержимое открытого ключа ~/.ssh/andpop-mrsu.pub в список зарегистрированных SSH-ключей для профиля andpop-mrsu на GitHub.
