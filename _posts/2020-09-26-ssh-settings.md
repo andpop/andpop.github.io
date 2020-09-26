@@ -41,6 +41,7 @@ ssh-keygen -t rsa -b 4096 -C “andrvpopov@gmail.com”
 ```
 В качестве имени файла указываем ~/.ssh/andpop-mrsu.
 * Редактируем конфигурационный файл ~/.ssh/config (если такого файла нет, то создаем его):
+
 ```
 # andpop Github
 Host github.com
