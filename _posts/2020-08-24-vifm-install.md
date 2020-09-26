@@ -15,7 +15,10 @@ author: andpop
 Установка с сайта [ https://vifm.info/downloads.shtml ](https://vifm.info/downloads.shtml):
 * Скачиваем с этой страницы tar.bz2-архив с исходниками.
 * Раскрываем архив, запускаем консоль в каталоге с исходниками.
-* Если в системе не установлена библиотека libncursesw5, устанавливаем ее: `sudo apt-get install libncursesw5-dev`
+* Если в системе не установлена библиотека libncursesw5, устанавливаем ее: 
+```
+sudo apt-get install libncursesw5-dev
+```
 * Компилируем и устанавливем программу командами:
 ``` bash
 ./configure
